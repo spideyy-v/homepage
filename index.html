@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MacOS Style Homepage</title>
+  <link rel="icon" href="icon.png" type="image/png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: url('https://wallpaperaccess.com/full/317501.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.center {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.greeting {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.clock {
+  font-size: 4rem;
+  margin-top: 10px;
+}
+
+.quote {
+  font-style: italic;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.search-box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(6px);
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.2rem;
+  width: 300px;
+}
+
+.search-box img {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.todo {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  width: 300px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.todo h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.todo input, .todo button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li {
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.dock {
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.dock img {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.dock img:hover {
+  transform: scale(1.2);
+}
+
+  </style>
+</head><body>
+  <div class="top-bar">
+    <div id="weather">Loading weather...</div>
+    <div id="date"></div>
+  </div>  <div class="center">
+    <div class="greeting" id="greeting"></div>
+    <div class="clock" id="clock"></div>
+    <div class="quote" id="quote">Loading quote...</div><div class="search-container">
+  <div class="search-box">
+    <input type="text" placeholder="Search here..." id="search-input">
+    <img src="https://cdn-icons-png.flaticon.com/512/861/861627.png" onclick="performSearch()">
+    <img src="https://cdn-icons-png.flaticon.com/512/63/63764.png" id="mic-icon">
+  </div>
+</div>
+
+<div class="todo">
+  <h3>📝 To-Do List</h3>
+  <input type="text" id="taskInput" placeholder="New Task">
+  <button onclick="addTask()">Add</button>
+  <ul class="todo-list" id="taskList"></ul>
+</div>
+
+  </div>  <div class="dock">
+    <a href="https://youtube.com"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"></a>
+    <a href="https://chat.openai.com/"><img src="https://images.seeklogo.com/logo-png/46/1/chatgpt-logo-png_seeklogo-465219.png"></a>
+    <a href="https://github.com"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"></a>
+    <a href="https://nios.ac.in"><img src="https://vectorseek.com/wp-content/uploads/2023/08/Nios-Logo-Vector.svg-.png"></a>
+    <a href="https://codepen.io"><img src="https://blog.codepen.io/wp-content/uploads/2023/09/logo-white.png"></a>
+    <a href="https://flipkart.com"><img src="https://e7.pngegg.com/pngimages/946/191/png-clipart-flipkart-e-commerce-logo-bangalore-chief-executive-others-miscellaneous-blue-thumbnail.png"></a>
+    <a href="https://amazon.in"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png"></a>
+  </div>  <script>
+    async function loadWeatherFromJSON() {
+      try {
+        const res = await fetch('Rasra__India.txt');
+        const data = await res.json();
+
+        const today = data.days[0];
+        const location = data.resolvedAddress;
+        const temp = today.temp;
+        const feels = today.feelslike;
+        const condition = today.conditions;
+
+        document.getElementById('weather').innerHTML = `
+          🌍 ${location}<br>🌡️ ${temp}°C (Feels like ${feels}°C)<br>☁️ ${condition}
+        `;
+      } catch (e) {
+        console.error("Weather JSON load error:", e);
+        document.getElementById('weather').innerText = "❌ Weather not available.";
+      }
+    }
+
+    function getDailyQuote() {
+      fetch("http://localhost:3000/api/random-verse")
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("quote").innerText = `"${data.content}" — ${data.author}`;
+        })
+        .catch(() => {
+          document.getElementById("quote").innerText = "Failed to load quote.";
+        });
+    }
+
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('clock').textContent = now.toLocaleTimeString();
+      document.getElementById('date').textContent = now.toDateString();
+    }
+
+    function performSearch() {
+      const query = document.getElementById("search-input").value;
+      if (query.trim() !== "") {
+        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+      }
+    }
+
+    function setupGreeting() {
+      const hour = new Date().getHours();
+      let greet = 'Hello';
+      if (hour < 12) greet = 'Good Morning';
+      else if (hour < 17) greet = 'Good Afternoon';
+      else greet = 'Good Evening';
+      document.getElementById('greeting').textContent = greet;
+    }
+
+    function addTask() {
+      const task = document.getElementById('taskInput').value;
+      if (!task) return;
+      const li = document.createElement('li');
+      li.textContent = task;
+      document.getElementById('taskList').appendChild(li);
+      document.getElementById('taskInput').value = '';
+    }
+
+    // Voice Search
+    const micBtn = document.getElementById("mic-icon");
+    const searchInput = document.getElementById("search-input");
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (SpeechRecognition) {
+      const recognition = new SpeechRecognition();
+      recognition.continuous = false;
+      recognition.lang = 'en-IN';
+
+      micBtn.addEventListener("click", () => {
+        recognition.start();
+      });
+
+      recognition.onstart = () => {
+        searchInput.placeholder = "Listening...";
+      };
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        searchInput.value = transcript;
+        performSearch();
+      };
+
+      recognition.onerror = () => {
+        searchInput.placeholder = "Try again...";
+      };
+
+      recognition.onend = () => {
+        searchInput.placeholder = "Search Google...";
+      };
+    } else {
+      micBtn.style.display = "none";
+    }
+
+    // Init
+    updateClock();
+    setInterval(updateClock, 1000);
+    setupGreeting();
+    loadWeatherFromJSON();
+    getDailyQuote();
+  </script></body></html>

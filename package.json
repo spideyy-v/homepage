@@ -1,0 +1,14 @@
+{
+  "name": "bhagavad-gita-api",
+  "version": "1.0.0",
+  "description": "Hindi Bhagavad Gita quote API for Chrome homepage",
+  "main": "server/quotes.js",
+  "scripts": {
+    "start": "node server/quotes.js"
+  },
+  "author": "ViruDaya",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
