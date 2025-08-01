@@ -192,13 +192,13 @@ body {
 
     function getDailyQuote() {
       fetch("https://bhagavad-geeta-quotes-api.vercel.app/api/random-verse")
-        .then(res => res.json())
-        .then(data => {
-          document.getElementById("quote").innerText = `"${data.content}" — ${data.author}`;
-        })
-        .catch(() => {
-          document.getElementById("quote").innerText = "Failed to load quote.";
-        });
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("quote").innerText = `🕉️ "${data.text}"`;
+  })
+  .catch(() => {
+    document.getElementById("quote").innerText = "❌ श्लोक लोड नहीं हो पाया।";
+  });
     }
 
     function updateClock() {
