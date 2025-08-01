@@ -191,7 +191,7 @@ body {
     }
 
     function getDailyQuote() {
-      fetch("http://localhost:3000/api/random-verse")
+      fetch("https://bhagavad-geeta-quotes-api.vercel.app/api/random-verse")
         .then(res => res.json())
         .then(data => {
           document.getElementById("quote").innerText = `"${data.content}" — ${data.author}`;
