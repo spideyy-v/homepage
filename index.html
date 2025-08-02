@@ -151,8 +151,8 @@ body {
     <div class="quote" id="quote">Loading quote...</div><div class="search-container">
   <div class="search-box">
     <input type="text" placeholder="Search here..." id="search-input">
-    <img src="https://cdn-icons-png.flaticon.com/512/861/861627.png" onclick="performSearch()">
-    <img src="https://cdn-icons-png.flaticon.com/512/63/63764.png" id="mic-icon">
+    <img src="search.png" onclick="performSearch()">
+    <img src="mic.png" id="mic-icon">
   </div>
 </div>
 
@@ -224,7 +224,7 @@ body {
       if (hour < 12) greet = 'Good Morn‘n... V!';
       else if (hour < 17) greet = 'Good Aftrn‘n... V!';
       else if (hour < 21) greet = 'Good Even‘n... V!';
-      else greet = 'Good Nyt... V!
+      else greet = 'Good Nyt... V!';
         document.getElementById('greeting').textContent = greet;
     }
 
