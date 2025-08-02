@@ -220,11 +220,12 @@ body {
 
     function setupGreeting() {
       const hour = new Date().getHours();
-      let greet = 'Hello';
-      if (hour < 12) greet = 'Good Morning';
-      else if (hour < 17) greet = 'Good Afternoon';
-      else greet = 'Good Evening';
-      document.getElementById('greeting').textContent = greet;
+      let greet = 'Hello... V!';
+      if (hour < 12) greet = 'Good Morn‘n... V!';
+      else if (hour < 17) greet = 'Good Aftrn‘n... V!';
+      else if (hour < 21) greet = 'Good Even‘n... V!';
+      else greet = 'Good Nyt... V!
+        document.getElementById('greeting').textContent = greet;
     }
 
     function addTask() {
