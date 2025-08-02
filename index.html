@@ -14,7 +14,7 @@
 
 body {
   background: url('Chrome Bg.gif') no-repeat center center/cover;
-  height: 90vh;
+  height: 93vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,15 @@ body {
   text-align: center;
   margin-top: auto;
   margin-bottom: auto;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 50px 50px;
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(6px);
 }
 
 .greeting {
@@ -56,10 +65,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 30px;
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border-width: 1px;
-  border-color: #00000010
+  
 }
 
 .search-box {
@@ -150,8 +156,8 @@ body {
     <div id="date"></div>
     <div class="clock" id="clock"></div>
   </div>  <div class="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" width="250px" alt="Google">
     <div class="greeting" id="greeting"></div>
-    
     <div class="quote" id="quote">Loading quote...</div><div class="search-container">
   <div class="search-box">
     <input type="text" placeholder="Search here..." id="search-input">
@@ -283,4 +289,5 @@ body {
     loadWeatherFromJSON();
     getDailyQuote();
   </script></body></html>
+
   
