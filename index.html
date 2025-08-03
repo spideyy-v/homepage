@@ -14,26 +14,48 @@
 
 body {
   background: url('Chrome Bg.gif') no-repeat center center/cover;
-  height: 90vh;
+  height: 87vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+align-items: center;
   justify-content: space-between;
   color: #fff;
 }
 
 .top-bar {
   display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.4);
+position: absolute;
+  margin-left: 1000px;
+  margin-top: 35px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 20px 20px;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(6px);
+}
+
+#weather {
+  display: flex;
+  margin-left: -1000px;
+  margin-top: 35px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 20px 20px;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(6px);
+font-size: 1.2rem;
 }
 
 .center {
   text-align: center;
   margin-top: auto;
   margin-bottom: auto;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   padding: 50px 50px;
@@ -45,12 +67,17 @@ body {
 }
 
 .greeting {
+padding: -5px;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: bold;
+border-radius: 10px;
+color: transparent;
+background: linear-gradient(to right, #4285F4, #4285F4, #EA4335, #EA4335, #FBBC05, #4285F4, #4285F4, #34A853, #34A853, #EA4335, #EA4335);
+background-clip: text;
 }
 
 .clock {
-  font-size: 1rem;
+  font-size: 3rem;
   margin-top: 5px;
 }
 
@@ -58,6 +85,7 @@ body {
   font-style: italic;
   margin-top: 20px;
   font-size: 1.2rem;
+color: #FFFFFF50
 }
 
 .search-container {
@@ -131,18 +159,23 @@ body {
 .dock {
   display: flex;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 5px;
+  backdrop-filter: blur(5px);
 }
 
 .dock img {
-  width: 40px;
-  height: 40px;
+  border-radius: 10px;
+padding: 10px;
+background: rgba(255, 255, 255, 0.1);
+  width: 50px;
+  height: 50px;
   margin: 0 10px;
   cursor: pointer;
   transition: transform 0.2s;
+backdrop-filter: blur(10px);
 }
 
 .dock img:hover {
@@ -151,10 +184,10 @@ body {
 
   </style>
 </head><body>
+    <div id="weather" onclick="window.open('https://www.google.com/search?q=weather+forecast+rasra+ballia&oq=weather+forecast+Rasra&gs_lcrp=EgZjaHJvbWUqCAgBEAAYFhgeMhIIABAAGEYYgAIYkQIYgAQYigUyCAgBEAAYFhgeMggIAhAAGBYYHjIICAMQABgWGB4yCAgEEAAYFhgeMgoIBRAAGAoYFhgeMg0IBhAAGIYDGIAEGIoFMgoIBxAAGIAEGKIEMgoICBAAGIAEGKIEMgoICRAAGIAEGKIEMgcIChAhGI8CMgcICxAhGI8C0gEIOTYyOWowajeoAhSwAgHxBWloYcYj-Lu78QVpaGHGI_i7uw&client=tablet-android-transsion&sourceid=chrome-mobile&ie=UTF-8')">Loading weather...</div>
   <div class="top-bar">
-    <div id="weather">Loading weather...</div>
-    <div id="date"></div>
-    <div class="clock" id="clock"></div>
+    <div id="date" onclick="window.open('https://www.google.com/search?q=date+today&oq=date+tod&gs_lcrp=EgZjaHJvbWUqEAgAEAAYkQIYsQMYgAQYigUyEAgAEAAYkQIYsQMYgAQYigUyDQgBEAAYkQIYgAQYigUyDQgCEAAYkQIYgAQYigUyBggDEEUYOTIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiABDIHCAoQABiABDIHCAsQABiABDIHCAwQABiABDIHCA0QABiABDIHCA4QABiABNIBCDk1NTdqMGo5qAIOsAIB8QWXAU8ZP6DE5vEFlwFPGT-gxOY&client=tablet-android-transsion&sourceid=chrome-mobile&ie=UTF-8')"></div>
+    <div class="clock" id="clock" onclick="window. open('https://www.google.com/search?q=time+now&oq=time+&gs_lcrp=EgZjaHJvbWUqDwgDEAAYQxixAxiABBiKBTIGCAAQRRg5MgYIARAjGCcyEQgCEEUYOxhDGLEDGIAEGIoFMg8IAxAAGEMYsQMYgAQYigUyDwgEEAAYQxixAxiABBiKBTIMCAUQABhDGIAEGIoFMgwIBhAAGEMYgAQYigUyDAgHEAAYQxiABBiKBTIMCAgQABhDGIAEGIoFMgwICRAAGEMYgAQYigUyDAgKEAAYQxiABBiKBTIMCAsQABhDGIAEGIoFMg8IDBAAGEMYsQMYgAQYigUyDAgNEAAYQxiABBiKBTIGCA4QRRhB0gEIMjA5M2owajmoAg6wAgHxBZDFQJXgJ-Fq&client=tablet-android-transsion&sourceid=chrome-mobile&ie=UTF-8')"></div>
   </div>  <div class="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" width="250px" alt="Google">
     <div class="greeting" id="greeting"></div>
@@ -176,14 +209,16 @@ body {
 --->
     
   </div>  <div class="dock">
-    <a href="https://youtube.com"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"></a>
-    <a href="https://chat.openai.com/"><img src="https://images.seeklogo.com/logo-png/46/1/chatgpt-logo-png_seeklogo-465219.png"></a>
-    <a href="https://github.com"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"></a>
-    <a href="https://nios.ac.in"><img src="https://vectorseek.com/wp-content/uploads/2023/08/Nios-Logo-Vector.svg-.png"></a>
-    <a href="https://codepen.io"><img src="https://blog.codepen.io/wp-content/uploads/2023/09/logo-white.png"></a>
-    <a href="https://flipkart.com"><img src="https://e7.pngegg.com/pngimages/946/191/png-clipart-flipkart-e-commerce-logo-bangalore-chief-executive-others-miscellaneous-blue-thumbnail.png"></a>
-    <a href="https://amazon.in"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png"></a>
-  </div>  <script>
+
+    <a href="https://codepen.io/pen"><img src="cp.png"></a>
+    <a href="https://github.com/spideyy-v/"><img src="gt.png"></a>
+    <a href="https://chat.openai.com"><img src="gpt.png"></a>
+    <a href="https://youtube.com"><img src="yt.png"></a>
+    <a href="https://sdmis.nios.ac.in/"><img src="nios.png"></a>
+    <a href="https://flipkart.com"><img src="fk.png"></a>
+    <a href="https://amazon.in"><img src="az.png"></a>
+  </div> 
+<script>
     async function loadWeatherFromJSON() {
       try {
         const res = await fetch('Rasra__India.txt');
@@ -288,6 +323,6 @@ body {
     setupGreeting();
     loadWeatherFromJSON();
     getDailyQuote();
-  </script></body></html>
-
+</script>
+</body></html>
   
