@@ -363,6 +363,13 @@
       }
     }
 
+    // Add Enter key functionality
+    document.getElementById("search-input").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        performSearch();
+      }
+    });
+
     function setupGreeting() {
       const hour = new Date().getHours();
       let greet = 'Hello... V!';
