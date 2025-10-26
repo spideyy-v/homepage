@@ -286,14 +286,14 @@
   </style>
 </head>
 <body>
- <!--
+ 
   <div class="header-container">
     <div id="weather" onclick="window.open('https://www.google.com/search?q=weather+forecast+rasra+ballia&oq=weather+forecast+Rasra&gs_lcrp=EgZjaHJvbWUqCAgBEAAYFhgeMhIIABAAGEYYgAIYkQIYgAQYigUyCAgBEAAYFhgeMggIAhAAGBYYHjIICAMQABgWGB4yCAgEEAAYFhgeMgoIBRAAGAoYFhgeMg0IBhAAGIYDGIAEGIoFMgoIBxAAGIAEGKIEMgoICBAAGIAEGKIEMgoICRAAGIAEGKIEMgcIChAhGI8CMgcICxAhGI8C0gEIOTYyOWowajeoAhSwAgHxBWloYcYj-Lu78QVpaGHGI_i7uw&client=tablet-android-transsion&sourceid=chrome-mobile&ie=UTF-8')">Loading weather...</div>
     <div class="top-bar">
       <div id="date" onclick="window.open('https://www.google.com/search?q=date+today&oq=date+tod&gs_lcrp=EgZjaHJvbWUqEAgAEAAYkQIYsQMYgAQYigUyEAgAEAAYkQIYsQMYgAQYigUyDQgBEAAYkQIYgAQYigUyDQgCEAAYkQIYgAQYigUyBggDEEUYOTIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiABDIHCAoQABiABDIHCAsQABiABDIHCAwQABiABDIHCA0QABiABDIHCA4QABiABNIBCDk1NTdqMGo5qAIOsAIB8QWXAU8ZP6DE5vEFlwFPGT-gxOY&client=tablet-android-transsion&sourceid=chrome-mobile&ie=UTF-8')"></div>
       <div class="clock" id="clock" onclick="window.open('https://www.google.com/search?q=time+now&oq=time+&gs_lcrp=EgZjaHJvbWUqDwgDEAAYQxixAxiABBiKBTIGCAAQRRg5MgYIARAjGCcyEQgCEEUYOxhDGLEDGIAEGIoFMg8IAxAAGEMYsQMYgAQYigUyDwgEEAAYQxixAxiABBiKBTIMCAUQABhDGIAEGIoFMgwIBhAAGEMYgAQYigUyDAgHEAAYQxiABBiKBTIMCAgQABhDGIAEGIoFMgwICRAAGEMYgAQYigUyDAgKEAAYQxiABBiKBTIMCAsQABhDGIAEGIoFMg8IDBAAGEMYsQMYgAQYigUyDAgNEAAYQxiABBiKBTIGCA4QRRhB0gEIMjA5M2owajmoAg6wAgHxBZDFQJXgJ-Fq&client=tablet-android-transsion&sourceid=chrome-mobile&ie=UTF-8')"></div>
     </div>
-  </div> -->
+  </div>
 
   <div class="center">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" class="google-logo" alt="Google">
@@ -322,7 +322,7 @@
   <script>
     async function loadWeatherFromJSON() {
       try {
-        const res = await fetch('Rasra__India.txt');
+        const res = await fetch('z.txt');
         const data = await res.json();
 
         const today = data.days[0];
@@ -336,7 +336,7 @@
         `;
       } catch (e) {
         console.error("Weather JSON load error:", e);
-        document.getElementById('weather').innerText = "❌ Weather not available.";
+        document.getElementById('weather').innerText = "Subscribe to ViruDaya!";
       }
     }
 
